@@ -7,18 +7,21 @@ char ssid[] = "networkSSID";
 char pass[] = "password";
 
 char server[] = "echo.websocket.org";
+char path[] = "/";
+int port = 80;
 WebSocketClient client;
 
 void setup() {
   Serial.begin(9600);
   WiFi.begin(ssid, pass);
-  client.connect(server);
+  client.connect(server, path, port);
   client.setDataArrivedDelegate(dataArrived);
-  client.send("Hello World!");
+
+  client.sendMessage("Hello World");
 }
 
 void loop() {
-  client.monitor();
+  client.catchMessages();
 }
 
 void dataArrived(WebSocketClient client, String data) {
