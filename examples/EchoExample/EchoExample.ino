@@ -1,15 +1,17 @@
 #include "Arduino.h"
-#include <Ethernet.h>
+#include <WiFi.h>
 #include <SPI.h>
 #include <WebSocketClient.h>
 
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+char ssid[] = "networkSSID";
+char pass[] = "password";
+
 char server[] = "echo.websocket.org";
 WebSocketClient client;
 
 void setup() {
   Serial.begin(9600);
-  Ethernet.begin(mac);
+  WiFi.begin(ssid, pass);
   client.connect(server);
   client.setDataArrivedDelegate(dataArrived);
   client.send("Hello World!");
