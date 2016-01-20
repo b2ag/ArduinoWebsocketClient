@@ -27,23 +27,24 @@
 #include <string.h>
 #include <stdlib.h>
 
-prog_char stringVar[] PROGMEM = "{0}";
-prog_char clientHandshakeLine1[] PROGMEM = "GET {0} HTTP/1.1";
-prog_char clientHandshakeLine2[] PROGMEM = "Upgrade: WebSocket";
-prog_char clientHandshakeLine3[] PROGMEM = "Connection: Upgrade";
-prog_char clientHandshakeLine4[] PROGMEM = "Host: {0}";
-prog_char clientHandshakeLine5[] PROGMEM = "Origin: ArduinoWebSocketClient";
-prog_char serverHandshake[] PROGMEM = "HTTP/1.1 101";
+const char stringVar[] PROGMEM = "{0}";
+const char clientHandshakeLine1[] PROGMEM = "GET {0} HTTP/1.1";
+const char clientHandshakeLine2[] PROGMEM = "Upgrade: WebSocket";
+const char clientHandshakeLine3[] PROGMEM = "Connection: Upgrade";
+const char clientHandshakeLine4[] PROGMEM = "Host: {0}";
+const char clientHandshakeLine5[] PROGMEM = "Origin: ArduinoWebSocketClient";
+const char serverHandshake[] PROGMEM = "HTTP/1.1 101";
 
-PROGMEM const char *WebSocketClientStringTable[] =
-{   
-    stringVar,
-    clientHandshakeLine1,
-    clientHandshakeLine2,
-    clientHandshakeLine3,
-    clientHandshakeLine4,
-    clientHandshakeLine5,
-    serverHandshake
+PROGMEM const char* const WebSocketClientStringTable[] =
+{
+
+stringVar,
+clientHandshakeLine1,
+clientHandshakeLine2,
+clientHandshakeLine3,
+clientHandshakeLine4,
+clientHandshakeLine5,
+serverHandshake
 };
 
 String WebSocketClient::getStringTableItem(int index) {
