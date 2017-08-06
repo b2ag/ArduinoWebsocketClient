@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <WString.h>
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include "Arduino.h"
 
 //Uncomment this to use WIFLY Client
